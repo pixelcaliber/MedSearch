@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>X-Ray Search Results</title>
+    <style>
+        .search-result {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .search-result img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .search-result span {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>X-Ray Search Results</h1>
+    <div id="results"></div>
+
+    <script>
+        const searchResults = {{ results | tojson }}; // Inject the search results
+
+        function displayResults(data) {
+            const resultsElement = document.getElementById('results');
+            resultsElement.innerHTML = ''; // Clear previous results
+
+            for (const result of data) {
+                const searchResultElement = document.createElement('div');
+                searchResultElement.classList.add('search-result');
+
+                const imageElement = document.createElement('img');
+                imageElement.src = `images/${result.entity.filename}`; // Assuming '/images' as the storage location
+                imageElement.alt = result.filename; 
+
+                const filenameElement = document.createElement('span');
+                filenameElement.textContent = result.entity.filename;
+
+                
+                searchResultElement.appendChild(imageElement);
+                searchResultElement.appendChild(filenameElement);
+
+                resultsElement.appendChild(searchResultElement);
+            }
+        }
+
+        displayResults(searchResults);
+    </script>
+</body>
+</html>
