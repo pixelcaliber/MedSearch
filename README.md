@@ -9,7 +9,6 @@ MedSearch explores the application of vector similarity search techniques to med
 - Radiology (Proof-of-Concept): Provides a tool for radiologists to quickly reference visually similar X-ray images, potentially aiding in diagnosis or identifying subtle patterns.
 - Research (Exploration): Allows researchers to investigate potential relationships between X-ray images based on visual similarity.
 - Education (Demonstration): Serves as a learning aid for understanding image representations and similarity search in a medical context.
-Tech Stack
 
 ## Tech Stack
 
